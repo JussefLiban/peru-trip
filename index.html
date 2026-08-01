@@ -170,6 +170,36 @@
   .sec-head h2 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.75rem); }
   .sec-head .note { font-size: .85rem; color: var(--ink-faint); margin-left: auto; }
 
+  /* ---------- executive summary ---------- */
+  .summary {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    overflow: hidden; box-shadow: var(--shadow);
+  }
+  .summary .row {
+    display: grid; grid-template-columns: 96px minmax(0, 1fr) 78px;
+    align-items: baseline; gap: 14px; padding: 11px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary .row:last-child { border-bottom: 0; }
+  .summary .d {
+    font-size: .70rem; letter-spacing: .12em; text-transform: uppercase;
+    font-weight: 700; color: var(--ink-faint);
+  }
+  .summary .row.heavy .d { color: var(--rose); }
+  .summary .w { font-size: .89rem; line-height: 1.45; color: var(--ink); }
+  .summary .w b { font-weight: 650; }
+  .summary .drive {
+    text-align: right; font-size: .78rem; font-weight: 650; color: var(--ink-soft);
+    font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  @media (max-width: 620px) {
+    .summary .row { grid-template-columns: 1fr auto; gap: 4px 12px; }
+    .summary .d { grid-column: 1; }
+    .summary .drive { grid-column: 2; grid-row: 1; }
+    .summary .w { grid-column: 1 / -1; }
+  }
+
   /* ---------- Timeline ---------- */
   .days { display: grid; gap: 11px; }
   .day {
@@ -373,6 +403,25 @@
       <div class="sub" id="cdsub" data-es="hasta el aterrizaje" data-zh="距离降落">until landing</div>
     </div>
   </div>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-es="En un minuto" data-zh="一分钟速览">In one minute</div>
+        <h2 class="display" data-es="La semana de un vistazo" data-zh="本周一览">The week at a glance</h2>
+      </div>
+      <div class="note" data-es="10 visitas · 4 días de trabajo · ≈ 17 h al volante" data-zh="10 场拜访 · 4 个工作日 · 车程约 17 小时">10 visits · 4 working days · ≈ 17 h in the car</div>
+    </div>
+    <div class="summary">
+        <div class="row"><span class="d" data-es="Vie 7" data-zh="7日 周五">Fri 7</span><span class="w" data-es="Aterrizan 19:50. En casa a las diez, cena y nada más." data-zh="19:50 落地。十点到家，吃饭，别无安排。">Land 19:50. Home by ten, dinner, nothing else.</span><span class="drive">1 h</span></div>
+        <div class="row"><span class="d" data-es="Sáb 8" data-zh="8日 周六">Sat 8</span><span class="w" data-es="&lt;b&gt;TPP Safety&lt;/b&gt; a las nueve. Almuerzo en casa, cocina Daile. Chifa Titi a las ocho." data-zh="九点 &lt;b&gt;TPP Safety&lt;/b&gt;。中午在家吃 Daile 做的饭。八点 Chifa Titi。"><b>TPP Safety</b> at nine. Lunch at home cooked by Daile. Chifa Titi at eight.</span><span class="drive">2 h 30</span></div>
+        <div class="row"><span class="d" data-es="Dom 9" data-zh="9日 周日">Sun 9</span><span class="w" data-es="Sin visitas. Almuerzo en La Rosa Náutica, cena en Hakka con la familia Chang." data-zh="无拜访。中午 La Rosa Náutica，晚上与张家在 Hakka 用餐。">No visits. Lunch at La Rosa Náutica, dinner at Hakka with the Chang family.</span><span class="drive">1 h 40</span></div>
+        <div class="row heavy"><span class="d" data-es="Lun 10" data-zh="10日 周一">Mon 10</span><span class="w" data-es="&lt;b&gt;La Fama · Capelo · Total Stop Fire&lt;/b&gt; — Comas, Los Olivos y SJL. Cena en casa." data-zh="&lt;b&gt;La Fama · Capelo · Total Stop Fire&lt;/b&gt;——Comas、Los Olivos 和 SJL。晚餐在家。"><b>La Fama · Capelo · Total Stop Fire</b> — Comas, Los Olivos and SJL. Dinner at home.</span><span class="drive">3 h 35</span></div>
+        <div class="row heavy"><span class="d" data-es="Mar 11" data-zh="11日 周二">Tue 11</span><span class="w" data-es="&lt;b&gt;La Llave · VALTEC · Fireman’s&lt;/b&gt;. Opción de la noche: nuestros proyectos y Romantika, con Nayib." data-zh="&lt;b&gt;La Llave · VALTEC · Fireman’s&lt;/b&gt;。晚间备选：由 Nayib 带看我们的项目，并在 Romantika 用餐。"><b>La Llave · VALTEC · Fireman’s</b>. Evening option: our projects and Romantika, with Nayib.</span><span class="drive">3 h 30</span></div>
+        <div class="row heavy"><span class="d" data-es="Mié 12" data-zh="12日 周三">Wed 12</span><span class="w" data-es="&lt;b&gt;Simonetta · Valextin&lt;/b&gt;, y &lt;b&gt;Mecarte&lt;/b&gt; en la casa. Astrid y Gastón a las ocho, doce personas." data-zh="&lt;b&gt;Simonetta · Valextin&lt;/b&gt;，随后 &lt;b&gt;Mecarte&lt;/b&gt; 到家中会面。八点 Astrid y Gastón，共十二人。"><b>Simonetta · Valextin</b>, then <b>Mecarte</b> at the house. Astrid y Gastón at eight, twelve of us.</span><span class="drive">3 h 25</span></div>
+        <div class="row"><span class="d" data-es="Jue 13" data-zh="13日 周四">Thu 13</span><span class="w" data-es="Salir de casa 13:30. Vuelo 17:30." data-zh="13:30 从家出发。17:30 起飞。">Leave the house 13:30. Flight 17:30.</span><span class="drive">1 h 15</span></div>
+    </div>
+  </section>
 
   <section>
     <div class="sec-head">
